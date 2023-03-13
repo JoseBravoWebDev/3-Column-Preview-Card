@@ -1,0 +1,220 @@
+/* General Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+   line-height: 1;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* End General Reset */
+
+/* General Settings */
+
+@font-face {
+    /* Example */ 
+    font-family: Hanken;
+
+    src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf'),
+         url('assets/fonts/static/HankenGrotesk-Medium.ttf');
+}
+
+:root {
+   /* Primary Colors */
+   --primary: hsl(31, 77%, 52%);
+   --secondary: hsl(184, 100%, 22%);
+   --tertiary: hsl(179, 100%, 13%);
+
+   /* Neutral Colors */
+   --neutral-1: hsla(0, 0%, 100%, 0.75);
+   --neutral-2: hsl(0, 0%, 95%);
+
+   /* Fonts Family */
+   --ff-header: 'Big Shoulders Display';
+   --ff-body: 'Lexend Deca';
+
+   /* Font Size */
+   --fs-body: 0.9375rem;
+}
+
+/* End General Settings */
+
+/* General Styling */
+
+body {
+   background: var(--neutral-2);
+   font-family: var(--ff-body);
+   color: var(--neutral-1);
+   font-size: var(--fs-body);
+
+   /* For This Project Only */
+   display: grid;
+   place-items: center;
+   margin: 5rem 1.5rem;
+}
+
+/* End General Styling */
+
+/* Utilities */
+
+.flex-group {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+}
+
+/* End Utilities */
+
+/* Section Style */
+
+.card {
+  --padding: 3rem 2.5rem;
+  --gap: 2rem;
+  --margin-top: 0.5rem;
+
+  max-width: 900px;
+}
+
+.column {
+  padding: var(--padding);
+  display: grid;
+  gap: var(--gap);
+}
+
+.sedan {
+  background: var(--primary);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.suvs {
+  background: var(--secondary);
+}
+
+.luxury {
+  background: var(--tertiary);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.title {
+  margin-top: var(--margin-top);
+  font-family: var(--ff-header);
+  font-size: 2.5rem;
+  color: var(--neutral-2);
+  text-transform: uppercase;
+}
+
+.description {
+  padding-right: 1.25rem;
+}
+
+.button {
+  width: 9rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  color: inherit;
+}
+
+.sedan .button {
+  color: var(--primary);
+}
+
+.suvs .button {
+  color: var(--secondary);
+}
+
+.luxury .button {
+  color: var(--tertiary);
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    margin: 1rem;
+  }
+
+  .card {
+    --padding: 3rem 3rem 3rem 2.7rem;
+    --gap: 2rem;
+    --margin-top: 0.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sedan {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .luxury {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .description {
+    padding-right: 0;
+  }
+
+  .button {
+    margin-top: 2.5rem;
+  }
+}
+
+/* End Section Style */
+
+/* Atribution Style */
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+  color: black;
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
